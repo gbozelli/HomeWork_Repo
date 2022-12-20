@@ -6,13 +6,15 @@ const int k = 6;
 
 void crescent_ordenation(int M[k]){
     int current_number;
-    for(int i = 0; i<k; i=i++){
+    for(int i = 0; i<k; i++){
         current_number = M[i+1];
         int j = i;
-        while(current_number < M[j])
+        while(current_number < M[j] & j>=0){
             M[i+1] = M[i];
             j = j-1;
-}}
+        }
+    }
+}
 
 void print_array(int M[k]){
     cout << "[";
