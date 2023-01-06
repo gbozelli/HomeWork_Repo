@@ -5,7 +5,7 @@ class Triangulo:
         self.b = b
         self.c = c
         list = [a,b,c]
-    def sort(self,list):
+    def sort():
         for i in range(1,2):
             key = list[i]
             j = i - 1
@@ -14,7 +14,7 @@ class Triangulo:
                 list[j+1] = list[j]
             list[j+1] = key
         return list
-    def test(self,list):
+    def test():
         a = list[0]
         b = list[1]
         c = list[2]
