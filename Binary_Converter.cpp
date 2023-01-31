@@ -6,52 +6,51 @@ using namespace std;
 
 const int n = 8;
 
-std::array<int, n> binarization(int v){
-    std::array<int, n> A={0};
+void binarization(int v, int V[]){
     int k = 0;
     for(int v; v>0;v=v){
     while(pow(2, k)<v){
         k = k+1;
     }
     k = k-1;
-    A[7-k] = 1;
-    v=v-pow(2,k);}
-    return A;
+    int c = 7-k;
+    V[c] = 1;
+    v=v-pow(2,k);
+    }
 }
 
-std::array<int, n> sum(std::array<int, n> A[n], std::array<int, n> B[n]){
+void sum(int A[], int B[], int S[]){
     int a = 0;
-    std::array<int, n> C={0};
-    for(int i=7;i>0;i--){
+    for(int i=n;i>0;i--){
         int x = A[i]+B[i]+a;
         if(x==2){
-            C[i]=0;
+            S[i]=0;
             int a = 1;
         }
         if(x==1){
-            C[i]=1;
+            S[i]=1;
             int a = 0;
         }
         if(x==0){
             int a = 0;
         }
     }
-    return C;
 }
 
 void print_array(int M[n]){
-    cout << "[ ";
     for(int i =0;i<n;i++){
-        cout << M[i] << " ";}
-    cout  << "]";
+        cout << M[i];}
 }
 
 int main(){
-    int A = 1;
-    int B = 3;
-    std::array<int, n> a = binarization(A);
-    std::array<int, n> b = binarization(B);
-    std::array<int, n> S = sum(a,b);
+    int a = 1;
+    int b = 3;
+    int A[n] = {0};
+    int B[n] = {0};
+    int S[n] = {0};
+    binarization(a, A);
+    binarization(b, B);
+    sum(A,B,S);
     print_array(S);
     return 0;
 }
