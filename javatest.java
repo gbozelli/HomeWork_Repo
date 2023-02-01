@@ -9,7 +9,6 @@ class MeuPrograma {
         minha_conta.transfere(conta_amigo, 200);
         Cliente A = new Cliente();
         minha_conta.titular = A;
-
     }
 }
 
