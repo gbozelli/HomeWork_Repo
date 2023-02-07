@@ -1,5 +1,5 @@
 
-package br.com.caelum.contas.modelo;
+package br.com.caelum.contas;
 
 public class Conta{
     String nome;
