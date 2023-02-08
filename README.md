@@ -1,2 +1,2 @@
-# ICS_Codes
-Codes and Homeworks from 'Introduction to Computer Science' class
+# Homework_repo
+Codes from random courses, unfinished projects and university´s homeworks. Feel free to use some lines of codes from this archives
