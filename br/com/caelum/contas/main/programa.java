@@ -1,11 +1,11 @@
 
 package br.com.caelum.contas.main;
-import br.com.caelum.contas.Banco;
+import br.com.caelum.contas.Corrente;
 
-class teste_conta{
+class mprograma{
     public static void main(String[] args){
-        Banco meuBanco = new Banco();
-        meuBanco.nome = "SuperBradesco";
-        System.out.println(meuBanco.nome);
+        Corrente Cleitin = new Corrente("Cleitin", 123456, "SuperBradesco", 0);
+        System.out.println(Cleitin.recuperaDadosParaImpressao());
     }
 }
+
