@@ -1,10 +1,6 @@
 package br.com.caelum.funcionarios;
 
-public class sistema extends funcionario{
-    public sistema(String nome, String cpf, int salario) {
-    super(nome, cpf, salario);}public void getrendimento() {}
+public interface sistema {
+    boolean aut(int senha);
     
-    public void login(funcionario f){
-    
-    }
 }

@@ -1,8 +1,9 @@
 package br.com.caelum.contas;
 
-public class Corrente extends Conta{
-    public Corrente(String titular, int cpf, String agência, double saldo) {
-        super(titular, cpf, agência, saldo);}
+public class Corrente implements Conta{
+    double saldo;
+    int cpf;
+    String titular;
     public void settransfere(Corrente conta, double valor){
         this.saldo -= valor;
         conta.saldo += valor; 
@@ -12,5 +13,17 @@ public class Corrente extends Conta{
     }
     public String getTipo(){
         return "Conta Corrente";
+    }
+    public double getValorImposto() {
+        return saldo*0.01;
+    }
+    public void setdeposita(double valor) {
+        
+    }
+    public void setsaca(double valor) {
+        
+    }
+    public String recuperaDadosParaImpressao() {
+        return null;
     }
 }
