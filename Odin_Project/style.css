@@ -33,3 +33,19 @@
     background-color: rgb(255, 255, 0);
 }
 
+img{
+    height: 100px;
+    width: 100px;
+}
+
+.parent .children{
+    background-color: yellow;
+    color: red;
+    text-align: center;
+}
+
+.parent{
+    background-color:white;
+    font-size: 12;
+    color:black;
+}
