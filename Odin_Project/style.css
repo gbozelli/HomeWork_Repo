@@ -1,64 +1,77 @@
-/* this is some magical font-importing.  
-you'll learn about it later. */
-@import url('https://fonts.googleapis.com/css2?family=Besley:ital,wght@0,400;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+html, body {
+  height: 100%;
+}
 
 body {
+  font-family: Roboto, sans-serif;
   margin: 0;
-  background: #eee;
-  font-family: Besley, serif;
+  background: #aaa;
+  color: #333;
+  /* I'll give you this one for free lol */
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.header {
-    display: flex;
-    justify-content: space-between;
-    padding: 8px;
-  }
-  
-ul {
-    display: flex;
-    margin: 0;
-    padding: 0;
-    gap: 16px;
-  }
-  
-.left, .right {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
+.header{
+  font-weight:bold ;
+  font-size: 20px;
+}
 
-.profile-image {
-  background: rebeccapurple;
-  box-shadow: inset 2px 2px 4px rgba(0,0,0,.5);
+.modal {
+  display: flex;
+  background: white;
+  width: 480px;
+  border-radius: 10px;
+  box-shadow: 2px 4px 16px rgba(0,0,0,.2);
+  gap: 16px;
+  padding: 16px;
+}
+
+.icon {
+  color: royalblue;
+  font-size: 26px;
+  font-weight: 700;
+  background: lavender;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
-  width: 48px;
-  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin:16px;
+  align-self: flex-start;
+  flex-shrink: 0;
 }
 
-.logo {
-  color: rebeccapurple;
-  font-size: 32px;
-  font-weight: 900;
-  font-style: italic;
+.close-button {
+  background: #eee;
+  border-radius: 50%;
+  color: #888;
+  font-weight: 400;
+  font-size: 16px;
+  height: 24px;
+  width: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 button {
-  border: none;
+  padding: 8px 16px;
   border-radius: 8px;
-  background: rebeccapurple;
+}
+
+button.continue {
+  background: royalblue;
+  border: 1px solid royalblue;
   color: white;
-  padding: 8px 24px;
 }
 
-a {
-  /* this removes the line under our links */
-  text-decoration: none;
-  color: rebeccapurple;
-  margin:4px;
-}
-
-ul {
-  display:flex;
-  list-style-type: none;
+button.cancel {
+  background: white;
+  border: 1px solid #ddd;
+  color: royalblue;
 }
