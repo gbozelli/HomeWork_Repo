@@ -28,15 +28,15 @@ void setPValues(complexNumber * Z, double r, double t){
     Z->t = t;
 };
 
-complexNumber conversorRtoP(complexNumber * Z){
+void conversorRtoP(complexNumber * Z){
     double a = Z->a, b = Z->b, 
     r = sqrt((a*a)+(b*b)), t = conversorRadtoDeg(atan(b/a));
     setPValues(Z,r,t);
 };
 
-complexNumber conversorPtoR(complexNumber * Z){
+void conversorPtoR(complexNumber * Z){
     double r = Z->r, t = Z->t, 
-    a = r*cos(conversorRadtoDeg(t)), b = r*sin(conversorRadtoDeg(t));
+    a = r*cos(conversorDegtoRad(t)), b = r*sin(conversorDegtoRad(t));
     setRValues(Z,a,b);
 };
 
@@ -60,33 +60,43 @@ complexNumber sumComplex(complexNumber Z1, complexNumber Z2){
 };
 
 complexNumber multComplex(complexNumber Z1, complexNumber Z2){
-    complexNumber Z3 = createPComplex((Z1.r*Z2.r),(Z1.t+Z1.t));
+    complexNumber Z3 = createPComplex((Z1.r*Z2.r),(Z1.t+Z2.t));
     return Z3;
 };
 
 complexNumber divComplex(complexNumber Z1, complexNumber Z2){
-    complexNumber Z3 = createPComplex((Z1.a*Z2.a + Z1.b*Z2.b)/(Z2.a*Z2.a + Z2.b*Z2.b),
-    (Z1.b*Z2.a - Z1.a*Z2.b)/(Z2.a*Z2.a + Z2.b*Z2.b));
+    double a,b,c,d;
+    a = Z1.a;b = Z1.b; c = Z2.a; d = Z2.b;
+    complexNumber Z3 = createRComplex(((a*c + b*d)/(c*c + d*d)),((c*b - a*d)/(c*c + d*d)));
     return Z3;
 };
 
-void expComplex(complexNumber * Z, int n){
-    for(int i=0;i<n;i++){
-        Z->r *= Z->r;
+complexNumber expComplex(complexNumber Z, int n){
+    double r = Z.r;
+    for(int i=1;i<n;i++){
+        Z.r *= r;
     }
-    Z->t *= n;
+    Z.t *= n;
+    return Z;
 };
 
 void printComplex(complexNumber Z){
     printf("%lf + j%lf\n", Z.a, Z.b);
-    printf("%lf /_%lfº", Z.r, Z.t);
+};
+
+void rootComplex(complexNumber Z, int n){
+    double t = Z.t;
+    complexNumber current;
+    Z.r = exp(log(Z.r)/n);
+    for(int i=0;i<n;i++){
+        Z.t = (t+(2*3.14*i*57.2958))/n;
+        current = createPComplex(Z.r,Z.t);
+        printComplex(current);
+    }
 };
 
 int main(){
     complexNumber Z1 = createRComplex(1,1);
-    complexNumber Z2 = createRComplex(1,1);
-    complexNumber Z3 = createPComplex(1,2);
-    complexNumber Z4 = sumComplex(Z1,Z2);
-    printComplex(Z4);
+    rootComplex(Z1,3);
     return 0;
 }
